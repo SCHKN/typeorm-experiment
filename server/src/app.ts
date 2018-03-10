@@ -12,7 +12,7 @@ createConnection().then(connection => {
 
     // const userRepository = connection.getRepository(User);
 
-    const PORT = 3000;
+    const PORT = 8081;
     const app = express();
     app.use(bodyParser.json());
 

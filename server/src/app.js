@@ -11,7 +11,7 @@ var path = require("path");
 // create typeorm connection
 typeorm_1.createConnection().then(function (connection) {
     // const userRepository = connection.getRepository(User);
-    var PORT = 3000;
+    var PORT = 8081;
     var app = express();
     app.use(bodyParser.json());
     // grqphql types
