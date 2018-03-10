@@ -1,7 +1,14 @@
 export default {
   Query: {
-    terms: () => {},
-    term: () => {}
+    terms: async(obj, args, { entityManager, models, ...otherArgs }, info) => {
+      const terms = await entityManager.find(models.Term.Term);
+      return terms;
+    },
+    term: async(obj, args, { entityManager, models, ...otherArgs }, info) => {
+      const findTerm = await entityManager.findOne(models.Term.Term, args);
+      console.log(findTerm);
+      return findTerm;
+    }
   },
   Mutation: {
     createTerm : async(obj, args, { entityManager, models, ...otherArgs }, info) => {

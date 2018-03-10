@@ -47,8 +47,31 @@ var _this = this;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = {
     Query: {
-        terms: function () { },
-        term: function () { }
+        terms: function (obj, args, _a, info) { return __awaiter(_this, void 0, void 0, function () {
+            var entityManager = _a.entityManager, models = _a.models, otherArgs = __rest(_a, ["entityManager", "models"]);
+            var terms;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0: return [4 /*yield*/, entityManager.find(models.Term.Term)];
+                    case 1:
+                        terms = _b.sent();
+                        return [2 /*return*/, terms];
+                }
+            });
+        }); },
+        term: function (obj, args, _a, info) { return __awaiter(_this, void 0, void 0, function () {
+            var entityManager = _a.entityManager, models = _a.models, otherArgs = __rest(_a, ["entityManager", "models"]);
+            var findTerm;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0: return [4 /*yield*/, entityManager.findOne(models.Term.Term, args)];
+                    case 1:
+                        findTerm = _b.sent();
+                        console.log(findTerm);
+                        return [2 /*return*/, findTerm];
+                }
+            });
+        }); }
     },
     Mutation: {
         createTerm: function (obj, args, _a, info) { return __awaiter(_this, void 0, void 0, function () {
