@@ -1,14 +1,11 @@
 import React from 'react'
+import Navigation from './Navigation'
 
 class Home extends React.Component {
-  constructor() {
-    super();
-  }
-
   render() {
     return (
       <div>
-        Home
+        <Navigation />
       </div>
     )
   }
