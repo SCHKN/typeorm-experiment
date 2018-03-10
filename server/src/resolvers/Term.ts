@@ -6,7 +6,6 @@ export default {
     },
     term: async(obj, args, { entityManager, models, ...otherArgs }, info) => {
       const findTerm = await entityManager.findOne(models.Term.Term, args);
-      console.log(findTerm);
       return findTerm;
     }
   },
