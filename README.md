@@ -1,1 +1,1 @@
-"typeorm-express" 
+A very simple TypeORM Express experiment
