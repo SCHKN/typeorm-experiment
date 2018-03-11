@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var typeorm_1 = require("typeorm");
+var class_validator_1 = require("class-validator");
 var User = /** @class */ (function () {
     function User() {
     }
@@ -19,12 +20,20 @@ var User = /** @class */ (function () {
     ], User.prototype, "id", void 0);
     __decorate([
         typeorm_1.Column(),
+        class_validator_1.IsAlphanumeric({ message: "Name can not contain any spaces or special characters" }),
+        class_validator_1.MinLength(3, { message: "Name must be at least 3 characters long" }),
+        class_validator_1.MaxLength(20, { message: "Name must be less than 20 characters" }),
         __metadata("design:type", String)
-    ], User.prototype, "firstName", void 0);
+    ], User.prototype, "name", void 0);
+    __decorate([
+        typeorm_1.Column({ type: "varchar", unique: true }),
+        class_validator_1.IsEmail(undefined, { message: "Email must be properly formatted" }),
+        __metadata("design:type", String)
+    ], User.prototype, "email", void 0);
     __decorate([
         typeorm_1.Column(),
         __metadata("design:type", String)
-    ], User.prototype, "lastName", void 0);
+    ], User.prototype, "password", void 0);
     User = __decorate([
         typeorm_1.Entity()
     ], User);

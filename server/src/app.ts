@@ -6,6 +6,7 @@ import { graphqlExpress, graphiqlExpress } from 'apollo-server-express';
 import { makeExecutableSchema } from 'graphql-tools'
 import { fileLoader, mergeTypes, mergeResolvers } from 'merge-graphql-schemas';
 import * as path from 'path'
+import * as cors from 'cors'
 
 // create typeorm connection
 createConnection().then(connection => {
@@ -14,6 +15,7 @@ createConnection().then(connection => {
 
     const PORT = 8081;
     const app = express();
+    app.use(cors('*'));
     app.use(bodyParser.json());
 
     // grqphql types

@@ -8,11 +8,13 @@ var apollo_server_express_1 = require("apollo-server-express");
 var graphql_tools_1 = require("graphql-tools");
 var merge_graphql_schemas_1 = require("merge-graphql-schemas");
 var path = require("path");
+var cors = require("cors");
 // create typeorm connection
 typeorm_1.createConnection().then(function (connection) {
     // const userRepository = connection.getRepository(User);
     var PORT = 8081;
     var app = express();
+    app.use(cors('*'));
     app.use(bodyParser.json());
     // grqphql types
     var typesArray = merge_graphql_schemas_1.fileLoader(path.join(__dirname, './types'), { extensions: ['.js'] });
