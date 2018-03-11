@@ -20,6 +20,16 @@ export default {
   },
   Mutation: {
     signup: async(obj, { password, ...signUpArgs }, { entityManager, models, ...otherArgs }, info) => {
+      // password checking
+      if (password.length < 5 || password.length > 20) {
+        return {
+          success: false,
+          errors: [{
+            field: 'password',
+            message: 'Your password needs to be between 3 and 20 characters'
+          }]
+        }
+      }
       const hashedPassword = await bcrypt.hash(password, 12);
       const user = await entityManager.create(models.User.User, { ...signUpArgs, password: hashedPassword });
       const errors = await validate(user);

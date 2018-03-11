@@ -79,7 +79,18 @@ exports.default = {
             var hashedPassword, user, errors, saveUser, err_1;
             return __generator(this, function (_c) {
                 switch (_c.label) {
-                    case 0: return [4 /*yield*/, bcrypt.hash(password, 12)];
+                    case 0:
+                        // password checking
+                        if (password.length < 5 || password.length > 20) {
+                            return [2 /*return*/, {
+                                    success: false,
+                                    errors: [{
+                                            field: 'password',
+                                            message: 'Your password needs to be between 3 and 20 characters'
+                                        }]
+                                }];
+                        }
+                        return [4 /*yield*/, bcrypt.hash(password, 12)];
                     case 1:
                         hashedPassword = _c.sent();
                         return [4 /*yield*/, entityManager.create(models.User.User, __assign({}, signUpArgs, { password: hashedPassword }))];
