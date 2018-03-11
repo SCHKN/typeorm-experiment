@@ -1,6 +1,7 @@
 import React from 'react';
 import { Menu } from 'semantic-ui-react'
 import Routes from './Routes'
+import { Link } from 'react-router-dom'
 
 export default class Example extends React.Component {
   constructor() {
@@ -18,7 +19,7 @@ export default class Example extends React.Component {
           <Menu.Item header>Hackterms Clone</Menu.Item>
           <Menu.Menu position='right'>
             <Menu.Item name='signup' active={activeItem === 'signup'} onClick={this.handleItemClick}>
-             Sign Up
+             <Link to="/signup">Sign Up</Link>
             </Menu.Item>
             <Menu.Item name='login' active={activeItem === 'login'} onClick={this.handleItemClick}>
              Login

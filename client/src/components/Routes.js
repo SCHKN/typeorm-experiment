@@ -1,16 +1,15 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Home from './Home'
-
+import SignUp from './auth/SignUp'
 
 export default class Routes extends React.Component {
   render() {
     return (
-      <BrowserRouter>
-        <Switch>
-          <Route path="/" exact component={Home} />
-        </Switch>
-      </BrowserRouter>
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/signup" exact component={SignUp} />
+      </Switch>
     )
   }
 }
