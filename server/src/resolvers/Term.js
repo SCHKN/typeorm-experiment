@@ -67,7 +67,6 @@ exports.default = {
                     case 0: return [4 /*yield*/, entityManager.findOne(models.Term.Term, args)];
                     case 1:
                         findTerm = _b.sent();
-                        console.log(findTerm);
                         return [2 /*return*/, findTerm];
                 }
             });
